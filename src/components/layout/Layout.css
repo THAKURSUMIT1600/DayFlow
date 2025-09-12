@@ -1,0 +1,154 @@
+/* Layout Styles */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__header {
+  flex-shrink: 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.layout__content {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.layout__sidebar {
+  flex-shrink: 0;
+  width: 400px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.layout__main {
+  flex: 1;
+  background: #f9fafb;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling */
+.layout__sidebar::-webkit-scrollbar,
+.layout__main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.layout__sidebar::-webkit-scrollbar-track,
+.layout__main::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.layout__sidebar::-webkit-scrollbar-thumb,
+.layout__main::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.layout__sidebar::-webkit-scrollbar-thumb:hover,
+.layout__main::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Enhanced mobile scrolling */
+.layout__sidebar,
+.layout__main {
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  overscroll-behavior: contain; /* Prevent scroll chaining */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .layout__sidebar {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    min-height: 100vh;
+  }
+  
+  .layout__header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .layout__content {
+    flex-direction: column;
+    min-height: auto;
+    overflow-y: auto;
+  }
+  
+  .layout__sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    border-right: none;
+    border-bottom: 2px solid #e5e7eb;
+    position: relative;
+    top: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+    flex-shrink: 0;
+    padding-bottom: 1rem;
+  }
+  
+  .layout__main {
+    min-height: auto;
+    height: auto;
+    padding: 1rem;
+    overflow-y: visible;
+    overflow-x: hidden;
+    flex: none;
+  }
+  
+  /* Remove height constraints on mobile to allow natural content flow */
+  .layout__sidebar,
+  .layout__main {
+    overflow-y: visible;
+    max-height: none;
+  }
+  
+  /* Hide scrollbar on mobile while keeping functionality */
+  .layout__sidebar::-webkit-scrollbar,
+  .layout__main::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout__sidebar {
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid #e5e7eb;
+  }
+  
+  .layout__main {
+    padding: 1rem 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Ensure natural content flow on small screens */
+  .layout__content {
+    overflow-y: visible;
+  }
+  
+  /* Even thinner scrollbars on very small screens */
+  .layout__sidebar::-webkit-scrollbar,
+  .layout__main::-webkit-scrollbar {
+    width: 2px;
+  }
+}

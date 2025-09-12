@@ -1,0 +1,197 @@
+.mood-tracker {
+  margin-bottom: 2rem;
+}
+
+.mood-tracker__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.mood-tracker__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.mood-tracker__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.mood-tracker__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mood-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-background);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mood-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--mood-color);
+}
+
+.mood-option--selected {
+  border-color: var(--mood-color);
+  background: var(--mood-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mood-option--selected::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--mood-color), transparent);
+  opacity: 0.1;
+}
+
+.mood-option__icon {
+  padding: 0.75rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.mood-option--selected .mood-option__icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.mood-option__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.mood-suggestions {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  animation: fadeInUp 0.3s ease;
+}
+
+.mood-suggestions__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.mood-suggestions__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mood-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-background);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mood-suggestion:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+}
+
+.mood-suggestion__icon {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--color-background-secondary);
+}
+
+.mood-suggestion__content {
+  flex: 1;
+}
+
+.mood-suggestion__name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.mood-suggestion__category {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.mood-suggestions__hide {
+  margin-top: 0.5rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mood-tracker__options {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .mood-option {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .mood-option__label {
+    font-size: 0.75rem;
+  }
+  
+  .mood-suggestions__grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

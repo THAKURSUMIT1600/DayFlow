@@ -1,0 +1,183 @@
+.holiday-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.holiday-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.holiday-banner.urgent {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+  animation: pulse 2s infinite;
+}
+
+.holiday-banner.soon {
+  background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+}
+
+.holiday-banner.upcoming {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); }
+  50% { box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5); }
+  100% { box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); }
+}
+
+.holiday-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.holiday-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.holiday-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.holiday-details {
+  flex: 1;
+}
+
+.holiday-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.holiday-dates {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.days-until {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.plan-weekend-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.plan-weekend-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.holiday-suggestions {
+  margin-bottom: 1rem;
+}
+
+.suggestions-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem 0;
+  opacity: 0.9;
+}
+
+.suggestions-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.suggestion-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.more-holidays {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+}
+
+.more-holidays-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .holiday-banner {
+    padding: 1rem;
+  }
+  
+  .holiday-banner-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .holiday-info {
+    width: 100%;
+  }
+  
+  .plan-weekend-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .holiday-title {
+    font-size: 1.1rem;
+  }
+  
+  .holiday-dates {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .suggestions-list {
+    justify-content: flex-start;
+  }
+}
